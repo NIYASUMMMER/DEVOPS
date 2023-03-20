@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ('Containers - Virtual environment start') {
+        stage ('Virtual environment start') {
             steps {
                 echo 'Spinning up the containers'
                 sh '/usr/local/bin/docker-compose build'
