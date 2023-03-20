@@ -8,10 +8,16 @@ pipeline {
                 bat 'docker-compose up -d'
             }      
         }
-        stage('MicroServices - Startup in Parallel') {
+        stage('Manage Dependancies') {
+            steps {
+               sh 'npm install'
+            }
+        }
+    }
+//        stage('MicroServices - Startup in Parallel') {
 
 
-            parallel {
+//            parallel {
 
 
 //                 stage('Authentication') {
@@ -76,23 +82,23 @@ pipeline {
 //                     }
 //                 }
 //             }}
-     }
-        post {
-            always {
-                echo 'Pipeline fully executed.'
-            }
-            success {
-                echo 'All stages completed successfully.'
-            }
-            unstable {
-                echo 'Stages are inconsistent'
-            }
-            failure {
-                echo 'Pipeline Failed'
-            }
-            changed {
-                echo 'Changes detected..'
-            }
-        }
+//     }
+//         post {
+//             always {
+//                 echo 'Pipeline fully executed.'
+//             }
+//             success {
+//                 echo 'All stages completed successfully.'
+//             }
+//             unstable {
+//                 echo 'Stages are inconsistent'
+//             }
+//             failure {
+//                 echo 'Pipeline Failed'
+//             }
+//             changed {
+//                 echo 'Changes detected..'
+//             }
+//         }
 }
             
