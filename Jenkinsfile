@@ -1,8 +1,7 @@
 pipeline {
     agent any
     environment{
-        p = sh 'echo $PATH'
-        PATH= p + ':/usr/local/bin/docker-compose'
+        sh PATH='/usr/local/bin/docker-compose'
     }
     stages {
         stage ('Virtual environment start') {
