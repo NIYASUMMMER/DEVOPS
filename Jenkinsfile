@@ -4,8 +4,8 @@ pipeline {
         stage ('Containers - Virtual environment start') {
             steps {
                 echo 'Spinning up the containers'
-                sh 'docker-compose build'
-                sh 'docker-compose up -d'
+                sh '/usr/local/bin/docker-compose build'
+                sh '/usr/local/bin/docker-compose up -d'
             }      
         }
         stage('Manage Dependancies') {
