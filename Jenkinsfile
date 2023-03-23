@@ -14,7 +14,7 @@ pipeline {
                 echo 'Managing dependancies'
             }
         }
-    }
+    
         stage('MicroServices - Startup in Parallel') {
 
 
@@ -30,6 +30,7 @@ pipeline {
                     }
                 }
         }
+    }
 }
 
 //                 stage ('Patients MicroService') {
