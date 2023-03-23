@@ -12,12 +12,12 @@ pipeline {
                 sh '/usr/local/bin/docker-compose up --build'
             }      
         }
-        stage('Manage Dependancies') {
-            steps {
-               //sh 'npm install'
-                echo 'Managing dependancies'
-            }
-        }
+//         stage('Manage Dependancies') {
+//             steps {
+//                 sh 'npm install'
+//                 echo 'Managing dependancies'
+//             }
+//         }
     
         stage('MicroServices - Startup in Parallel') {
 
@@ -55,16 +55,16 @@ pipeline {
 //                 }
 //             }      
 //         }
-//                 stage('Unit Testing - Chai/Mocha') {
-//             steps {   
-//                    dir('PatientRegistration') {
-//                                 script {
-//                                 echo 'Patient database Testing with Chai/Mocha'
-//                                  bat 'npm test'
-//                                     }
-//                                 }
-//                     }
-//         }             
+                stage('Unit Testing - Chai/Mocha') {
+            steps {   
+                   dir('PatientRegistration') {
+                                script {
+                                echo 'Patient database Testing with Chai/Mocha'
+                                 bat 'npm test'
+                                    }
+                                }
+                    }
+        }             
 
 //         stage('Microservice containers build') {
 //                 steps {
@@ -72,10 +72,10 @@ pipeline {
 //                     script {
 //                     echo 'Spinning down running containers'
                     
-//                     bat 'docker-compose down'
+//                     sh 'docker-compose down'
                 
 //                     echo 'Spinning up the containers'
-//                     bat 'docker-compose build'
+//                     sh 'docker-compose build'
 //                     }
 //                     }
 //                 }}
@@ -91,22 +91,22 @@ pipeline {
 //                 }
 //             }}
 //     }
-//         post {
-//             always {
-//                 echo 'Pipeline fully executed.'
-//             }
-//             success {
-//                 echo 'All stages completed successfully.'
-//             }
-//             unstable {
-//                 echo 'Stages are inconsistent'
-//             }
-//             failure {
-//                 echo 'Pipeline Failed'
-//             }
-//             changed {
-//                 echo 'Changes detected..'
-//             }
-//         }
+        post {
+            always {
+                echo 'Pipeline fully executed.'
+            }
+            success {
+                echo 'All stages completed successfully.'
+            }
+            unstable {
+                echo 'Stages are inconsistent'
+            }
+            failure {
+                echo 'Pipeline Failed'
+            }
+            changed {
+                echo 'Changes detected..'
+            }
+        }
 }
             
