@@ -8,7 +8,8 @@ pipeline {
             steps {
                 echo 'Spinning up the containers'
                 //sh '/usr/local/bin/docker-compose build'
-                sh '/usr/local/bin/docker-compose up'
+                //sh '/usr/local/bin/docker-compose up'
+                sh '/usr/local/bin/docker-compose up --build'
             }      
         }
         stage('Manage Dependancies') {
