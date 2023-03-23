@@ -29,7 +29,7 @@ pipeline {
                     steps {
                         dir('Authetication'){
                         echo 'Authentication starting up'
-                        bat 'npm install' 
+                        sh 'npm install' 
                         }
                     }
                 }
