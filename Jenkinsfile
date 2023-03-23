@@ -18,21 +18,23 @@ pipeline {
             }
         }
     }
-//        stage('MicroServices - Startup in Parallel') {
+        stage('MicroServices - Startup in Parallel') {
 
 
-//            parallel {
+            parallel {
 
 
-//                 stage('Authentication') {
-//                     steps {
-//                         dir('Authetication'){
-//                         echo 'Authentication starting up'
-//                         bat 'npm install' 
-//                         }
-//                     }
-//                 }
-           
+                stage('Authentication') {
+                    steps {
+                        dir('Authetication'){
+                        echo 'Authentication starting up'
+                        bat 'npm install' 
+                        }
+                    }
+                }
+        }
+}
+
 //                 stage ('Patients MicroService') {
 //                     steps {
 //                         dir('PatientRegistration'){
